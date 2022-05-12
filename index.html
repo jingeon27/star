@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="show">출력</button>
+    <button id="hidden">삭제</button>
+    <div id="root"></div>
+    <script>
+      const show = document.getElementById("show");
+      const hidden = document.getElementById("hidden");
+      const root = document.getElementById("root");
+      const ul = document.createElement("ul");
+      show.addEventListener("click", function () {
+        for (let i = 1; i <= 4; i++) {
+          const li = document.createElement("li");
+          for (let j = i; j > 0; j--) {
+            const div = document.createElement("span");
+            div.innerHTML = "★";
+            li.appendChild(div);
+          }
+          //   li.style.position = "absolute";
+          //   li.style.display = "flex";
+          //   li.style.marginTop = "40px";
+          li.style.listStyle = "none";
+          ul.appendChild(li);
+        }
+        root.appendChild(ul);
+      });
+      hidden.addEventListener("click", function () {
+        while (ul.firstChild) {
+          ul.removeChild(ul.firstChild);
+        }
+      });
+    </script>
+  </body>
+</html>
